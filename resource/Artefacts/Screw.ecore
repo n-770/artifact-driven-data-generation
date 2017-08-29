@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage
+	xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+	name="ScrewModel"
+    nsURI="ScrewModel.ecore"
+	nsPrefix="ScrewModel">
+  <eClassifiers xsi:type="ecore:EClass" name="Schraube">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gewindeAusfuehrung" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gewindeNennDurchmesser"
+        ordered="false" lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gewindeRichtung" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gewindeSteigung" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gewindeLaenge" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schraubenLaenge" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flankenWinkdel" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="festigkeitsKlasse" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nennZugFestigkeit" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        volatile="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nennStreckGrenze" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        volatile="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kopfExistenz" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchraubeMitKopf" eSuperTypes="#//Schraube">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kopfAußenDurchmesser" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kopfHoehe" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchraubeOhneKopf" eSuperTypes="#//Schraube">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schraubenForm" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StiftSchraube" eSuperTypes="#//SchraubeOhneKopf">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="einchraubendeLaenge" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchaftSchraube" eSuperTypes="#//SchraubeOhneKopf">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schaftDurchmesser" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SenkKopfSchraube" eSuperTypes="#//SchraubeMitKopf">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="obererKopfDurchmesser"
+        ordered="false" lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="untererKopfDurchmesser"
+        ordered="false" lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="KopfInnenProfil" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SechskantSchraube" eSuperTypes="#//SchraubeMitKopf">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schluesselWeite" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eckMaß" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VierkantSchraube" eSuperTypes="#//SchraubeMitKopf">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schluesselWeite" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eckMaß" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ZylinderkopfSchraube" eSuperTypes="#//SchraubeMitKopf">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kopfDurchmesser" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kopfInnenProfil" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eSubpackages name="PrimitiveTypes" nsURI="http:///ScrewModel/PrimitiveTypes.ecore"
+      nsPrefix="ScrewModel.PrimitiveTypes">
+    <eClassifiers xsi:type="ecore:EDataType" name="Double" instanceClassName="Double"/>
+  </eSubpackages>
+</ecore:EPackage>

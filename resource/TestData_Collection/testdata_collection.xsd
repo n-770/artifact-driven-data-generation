@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:lsmi="http://www.mi.wiai.uni-bamberg.de/datagenerator"
+	targetNamespace="http://www.mi.wiai.uni-bamberg.de/datagenerator">
+	
+	<xs:annotation>
+		<xs:documentation>
+			This XSD file defines a XML Schema for generated test data sets as XML file.
+			The XSD makes sure any generated XML files are valid.
+		</xs:documentation>
+	</xs:annotation>
+	
+	<xs:element name="DataGenerator">
+		<xs:annotation>
+			<xs:documentation>
+				Represents the root element of the XML file. Each XML file can only have
+				exactly one root element.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TestDataCollection" type="lsmi:TestDataCollectionDT" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="TestDataCollectionDT">
+		<xs:annotation>
+			<xs:documentation>
+				This type specifies the artefact categories artefact terms are generated.
+				At this stage, there're only two namely documents and products.
+				All test data generated is put under one of those categories. Once thing
+				to mention is they only exist once or not at all.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Documents" type="lsmi:DocumentsDT" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Products" type="lsmi:ProductsDT" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="DocumentsDT">
+		<xs:annotation>
+			<xs:documentation>
+				Here is the structure of documents nailed down. Remember, documents are children
+				of the category document. Because there could exist more than one the maximum occurence
+				is not defined.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Document" type="lsmi:AbstractFacetDT" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="amount" type="xs:integer" use="required"/>
+	</xs:complexType>
+	
+	<xs:complexType name="ProductsDT">
+		<xs:annotation>
+			<xs:documentation>
+				As with documents, there is a type for products. Products are put as children into the
+				product structure and the maximum occurence is not defined, too.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Product" type="lsmi:AbstractFacetDT" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="amount" type="xs:integer" use="required"/>
+	</xs:complexType>
+	
+	<xs:complexType name="AbstractFacetDT">
+		<xs:annotation>
+			<xs:documentation>
+				A facet is used by both, the document and product artefacts. And they've all
+				in common, that they consist of facets. Facets is another word for attributes
+				and is a common term in Information Retrieval. Notice, there are three attributes
+				defines. Those are: name, id and path. The latter is optional because products
+				do not have any path to a persistant file. Only the category documents uses it.
+				Whenever a document artefact has been generated a dummy file is created too.
+				The path here is used to link to the physical file in the file system.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Facet" type="lsmi:FacetDT" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="id" type="xs:anySimpleType" use="required"/>
+		<xs:attribute name="path" type="xs:string" use="optional"/>
+	</xs:complexType>
+	
+	<xs:complexType name="FacetDT">
+		<xs:annotation>
+			<xs:documentation>
+				Each facet tag in the XML structure has an attribute called name. The name
+				gives information about what facet it represnets. Specifing any name is always required.
+				Ignoring this causes invalid test data collections.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="unit" type="xs:string" use="optional"/>
+	</xs:complexType>
+	
+</xs:schema>

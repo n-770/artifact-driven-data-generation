@@ -1,0 +1,10 @@
+doc
+mht
+xml
+htm
+html
+rtf
+docx
+txt
+tex
+odt

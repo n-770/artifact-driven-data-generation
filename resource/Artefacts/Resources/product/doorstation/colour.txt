@@ -1,0 +1,12 @@
+Rot
+Schwarz
+Bronze
+Aluminium
+Dunkelgrau-Glimmer
+Weiﬂ-Hochglanz
+Schwarz-Hochglanz
+Silber-Metallic
+Weiﬂ
+Bernstein-Glimmer
+Titan-Metallic
+Graphitbraun-Metallic

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Product"
+    nsURI="http:///Product.ecore" nsPrefix="Product">
+  <eClassifiers xsi:type="ecore:EClass" name="Produkt" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="material" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lieferant" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Ringscheibe" eSuperTypes="#//Produkt">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aussendurchmesser" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="innendurchmesser" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Schraube" eSuperTypes="#//Produkt">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gewindeausfuehrung" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gewindenenndurchmesser"
+        ordered="false" lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gewinderichtung" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gewindesteigung" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gewindelaenge" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schraubenlaenge" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flankenwinkel" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="festigkeitsklasse" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nennzugfestigkeit" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        volatile="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nennstreckgrenze" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        volatile="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kopfexistenz" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Waschvollautomat" eSuperTypes="#//Haushaltsgeraet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fassungsvermoegen" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wasserverbrauch" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="waschwirkung" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Haushaltsgeraet" eSuperTypes="#//Produkt">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artikelNr" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artikelBezeichnung" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="preis" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stromverbrauch" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energieeffizienzklasse"
+        ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="beschreibung" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tuerstation" eSuperTypes="#//Produkt">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artikelNr" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modell" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="beschreibung" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="farbe" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="anzahlRuftasten" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kamera" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Toaster" eSuperTypes="#//Haushaltsgeraet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="farbe" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gewicht" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Einbauherd" eSuperTypes="#//Haushaltsgeraet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="design" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="garraum" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EsspressoVollautomat" eSuperTypes="#//Haushaltsgeraet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="volumenWassertank" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kaffeestaerkeEinstellbar"
+        ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wassermengeEinstellbar"
+        ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="malgrad" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kontrollanzeige" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selbsreinigung" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchraubeOhneKopf" eSuperTypes="#//Schraube">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schraubenform" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchraubeMitKopf" eSuperTypes="#//Schraube">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kopfaussenprofil" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kopfhoehe" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Stiftschraube" eSuperTypes="#//SchraubeOhneKopf">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="einschraublaenge" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Schaftschraube" eSuperTypes="#//SchraubeOhneKopf">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schaftdurchmesser" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Senkkopfschraube" eSuperTypes="#//SchraubeMitKopf">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="obererKopfdurchmesser"
+        ordered="false" lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="untererKopfdurchmesser"
+        ordered="false" lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kopfinnenprofil" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sechskantschraube" eSuperTypes="#//SchraubeMitKopf">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schluesselweite" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eckmass" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Vierkantschraube" eSuperTypes="#//SchraubeMitKopf">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schluesselweite" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eckmass" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Zylinderkopfschraube" eSuperTypes="#//SchraubeMitKopf">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kopfdurchmesser" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kopfinnenprofil" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eSubpackages name="PrimitiveTypes" nsURI="http:///Product/PrimitiveTypes.ecore"
+      nsPrefix="Product.PrimitiveTypes">
+    <eClassifiers xsi:type="ecore:EDataType" name="B" instanceClassName="B"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Double" instanceClassName="Double"/>
+  </eSubpackages>
+</ecore:EPackage>

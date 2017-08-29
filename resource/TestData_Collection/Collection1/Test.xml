@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataGenerator>
+  <TestDataCollection>
+    <Documents>
+      <Document name="Lastenheft" id="f9557b95-5676-4b24-a451-cd3e1f53c342" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_1.htm">
+        <Facet name="autor">Lotta Cameron</Facet>
+        <Facet name="erstellungsdatum">2008</Facet>
+        <Facet name="zuletztGeaendert">Jul 2009</Facet>
+        <Facet name="dateiName">Lastenheft_1</Facet>
+        <Facet name="dateiformat">htm</Facet>
+      </Document>
+      <Document name="Lastenheft" id="208bca3d-68f4-4d47-9b13-190f21e30288" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_2.txt">
+        <Facet name="autor">Jayden Boyd</Facet>
+        <Facet name="erstellungsdatum">2008</Facet>
+        <Facet name="zuletztGeaendert">Okt 2008</Facet>
+        <Facet name="dateiName">Lastenheft_2</Facet>
+        <Facet name="dateiformat">txt</Facet>
+      </Document>
+      <Document name="Lastenheft" id="797caa6c-7ce6-489b-a7f6-7dcfc649cd67" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_3.htm">
+        <Facet name="autor">Jessica Bradley</Facet>
+        <Facet name="erstellungsdatum">2008</Facet>
+        <Facet name="zuletztGeaendert">Jul 2008</Facet>
+        <Facet name="dateiName">Lastenheft_3</Facet>
+        <Facet name="dateiformat">htm</Facet>
+      </Document>
+      <Document name="Lastenheft" id="6730e9cb-0144-4ca2-b718-60576cf181c5" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_4.htm">
+        <Facet name="autor">Keira Bruce</Facet>
+        <Facet name="erstellungsdatum">2008</Facet>
+        <Facet name="zuletztGeaendert">Mai 2008</Facet>
+        <Facet name="dateiName">Lastenheft_4</Facet>
+        <Facet name="dateiformat">htm</Facet>
+      </Document>
+      <Document name="Lastenheft" id="77e9b92e-7316-4e91-ac0b-52f8502c1380" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_5.mht">
+        <Facet name="autor">Keira Bruce</Facet>
+        <Facet name="erstellungsdatum">2007</Facet>
+        <Facet name="zuletztGeaendert">Jun 2008</Facet>
+        <Facet name="dateiName">Lastenheft_5</Facet>
+        <Facet name="dateiformat">mht</Facet>
+      </Document>
+      <Document name="Lastenheft" id="dbfc462e-671c-4b6b-a6ca-9265f79422f1" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_6.docx">
+        <Facet name="autor">Jasmin Bowers</Facet>
+        <Facet name="erstellungsdatum">2008</Facet>
+        <Facet name="zuletztGeaendert">Aug 2008</Facet>
+        <Facet name="dateiName">Lastenheft_6</Facet>
+        <Facet name="dateiformat">docx</Facet>
+      </Document>
+      <Document name="Lastenheft" id="bbabcd12-507d-4a0d-89b0-2d849807cf8a" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_7.htm">
+        <Facet name="autor">Lauren Burris</Facet>
+        <Facet name="erstellungsdatum">2007</Facet>
+        <Facet name="zuletztGeaendert">Mai 2008</Facet>
+        <Facet name="dateiName">Lastenheft_7</Facet>
+        <Facet name="dateiformat">htm</Facet>
+      </Document>
+      <Document name="Lastenheft" id="e9580507-cb37-4a98-bd5c-360fb5e37f9b" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_8.doc">
+        <Facet name="autor">Isabelle Booker</Facet>
+        <Facet name="erstellungsdatum">2008</Facet>
+        <Facet name="zuletztGeaendert">Mrz 2009</Facet>
+        <Facet name="dateiName">Lastenheft_8</Facet>
+        <Facet name="dateiformat">doc</Facet>
+      </Document>
+      <Document name="Lastenheft" id="ea03a0ab-3526-4d55-9e0b-3fdcee92b83b" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_9.odt">
+        <Facet name="autor">Fabienne Bennett</Facet>
+        <Facet name="erstellungsdatum">2008</Facet>
+        <Facet name="zuletztGeaendert">Nov 2007</Facet>
+        <Facet name="dateiName">Lastenheft_9</Facet>
+        <Facet name="dateiformat">odt</Facet>
+      </Document>
+      <Document name="Lastenheft" id="e8e0836e-1d5a-45bf-aa6f-f3ba6cb4dbbb" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_10.mht">
+        <Facet name="autor">Kim Buck</Facet>
+        <Facet name="erstellungsdatum">2008</Facet>
+        <Facet name="zuletztGeaendert">Jul 2008</Facet>
+        <Facet name="dateiName">Lastenheft_10</Facet>
+        <Facet name="dateiformat">mht</Facet>
+      </Document>
+      <Document name="Lastenheft" id="f2f3e7a8-0d40-4e6f-8e24-532fd0540acc" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_11.odt">
+        <Facet name="autor">Katie Brown</Facet>
+        <Facet name="erstellungsdatum">2007</Facet>
+        <Facet name="zuletztGeaendert">Jul 2008</Facet>
+        <Facet name="dateiName">Lastenheft_11</Facet>
+        <Facet name="dateiformat">odt</Facet>
+      </Document>
+      <Document name="Lastenheft" id="c1745b49-d0cd-4f4c-8c72-822b9603873a" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_12.odt">
+        <Facet name="autor">Johanna Branch</Facet>
+        <Facet name="erstellungsdatum">2008</Facet>
+        <Facet name="zuletztGeaendert">Mai 2008</Facet>
+        <Facet name="dateiName">Lastenheft_12</Facet>
+        <Facet name="dateiformat">odt</Facet>
+      </Document>
+      <Document name="Lastenheft" id="dc6c9627-d5ad-4371-8f75-5d82977256c6" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_13.doc">
+        <Facet name="autor">Lea Burton</Facet>
+        <Facet name="erstellungsdatum">2007</Facet>
+        <Facet name="zuletztGeaendert">Apr 2008</Facet>
+        <Facet name="dateiName">Lastenheft_13</Facet>
+        <Facet name="dateiformat">doc</Facet>
+      </Document>
+      <Document name="Lastenheft" id="4a68dbfa-1497-4cb4-99a5-218a10c415e2" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_14.odt">
+        <Facet name="autor">Hayley Blair</Facet>
+        <Facet name="erstellungsdatum">2007</Facet>
+        <Facet name="zuletztGeaendert">Nov 2008</Facet>
+        <Facet name="dateiName">Lastenheft_14</Facet>
+        <Facet name="dateiformat">odt</Facet>
+      </Document>
+      <Document name="Lastenheft" id="ee068f28-8b94-4738-b6a2-ba40489be345" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_15.html">
+        <Facet name="autor">Jenna Bradford</Facet>
+        <Facet name="erstellungsdatum">2008</Facet>
+        <Facet name="zuletztGeaendert">Jun 2008</Facet>
+        <Facet name="dateiName">Lastenheft_15</Facet>
+        <Facet name="dateiformat">html</Facet>
+      </Document>
+      <Document name="Lastenheft" id="55beaed5-8fad-4781-a5c0-a507375e263a" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_16.rtf">
+        <Facet name="autor">Helene Blanchard</Facet>
+        <Facet name="erstellungsdatum">2008</Facet>
+        <Facet name="zuletztGeaendert">Dez 2008</Facet>
+        <Facet name="dateiName">Lastenheft_16</Facet>
+        <Facet name="dateiformat">rtf</Facet>
+      </Document>
+      <Document name="Lastenheft" id="a2c1607c-6593-4285-88cd-6c3bc30cdba8" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_17.rtf">
+        <Facet name="autor">Liliana Calderon</Facet>
+        <Facet name="erstellungsdatum">2008</Facet>
+        <Facet name="zuletztGeaendert">Mai 2008</Facet>
+        <Facet name="dateiName">Lastenheft_17</Facet>
+        <Facet name="dateiformat">rtf</Facet>
+      </Document>
+      <Document name="Lastenheft" id="7cb161cc-84ef-478e-ade8-9836f9c5973a" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_18.mht">
+        <Facet name="autor">Kendall Bryan</Facet>
+        <Facet name="erstellungsdatum">2008</Facet>
+        <Facet name="zuletztGeaendert">Apr 2008</Facet>
+        <Facet name="dateiName">Lastenheft_18</Facet>
+        <Facet name="dateiformat">mht</Facet>
+      </Document>
+      <Document name="Lastenheft" id="6e8263d1-9606-46b7-899b-e9b55fab8493" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_19.xml">
+        <Facet name="autor">Lena Bush</Facet>
+        <Facet name="erstellungsdatum">2008</Facet>
+        <Facet name="zuletztGeaendert">Apr 2008</Facet>
+        <Facet name="dateiName">Lastenheft_19</Facet>
+        <Facet name="dateiformat">xml</Facet>
+      </Document>
+      <Document name="Lastenheft" id="ede8be5a-6646-4714-b454-112ac88054a9" path="I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_20.xml">
+        <Facet name="autor">Laura Burns</Facet>
+        <Facet name="erstellungsdatum">2007</Facet>
+        <Facet name="zuletztGeaendert">Jul 2008</Facet>
+        <Facet name="dateiName">Lastenheft_20</Facet>
+        <Facet name="dateiformat">xml</Facet>
+      </Document>
+    </Documents>
+    <Products />
+  </TestDataCollection>
+</DataGenerator>
+

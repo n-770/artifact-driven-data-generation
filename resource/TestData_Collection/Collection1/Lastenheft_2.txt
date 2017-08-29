@@ -1,0 +1,10 @@
+name: Lastenheft id: 208bca3d-68f4-4d47-9b13-190f21e30288 path: I:/SourceCode/DataGenerator/src/resource/TestData_Collection/Lastenheft_2.txt
+	autor: Jayden Boyd
+	erstellungsdatum: 2008
+	zuletztGeaendert: Okt 2008
+	prozessphase: 
+	dateiName: Lastenheft_2
+	dateiformat: txt
+	versionierung: 
+	titel: 
+	stand: 

@@ -1,0 +1,69 @@
+Atlanta
+Bakersfield
+Boise City
+Boston
+Charlotte
+Chicago
+Cleveland
+Columbus
+Dallas
+Dayton
+Detroit
+Dover
+Edison
+Fresno
+Goodyear
+Houston
+Indianapolis
+Iowa
+Irvine
+Jacksonville
+Kansas City
+Kennewick
+Las Vegas
+Lincoln
+Long Beach
+Los Angeles
+Madera
+Medford
+Memphis
+Miami
+Minneapolis
+Missoula
+Nashville
+New Bedford
+New Jersey
+New Orleans
+New York
+Ohio
+Oklahoma City
+Orlando
+Panama City
+Philadelphia
+Phoenix
+Pittsburgh
+Plano
+Portland
+Redmond
+Richmond
+Riverside
+Rochester
+Rocklin
+Sacramento
+San Antonio
+San Diego
+San Francisco
+San Jose
+Santa Cruz
+Santa Fe
+Santa Rosa
+Seattle
+Springfield
+St Louis
+Stockton
+Tampa
+Tucson
+Tulsa
+Virginia Beach
+Washington
+Yakima

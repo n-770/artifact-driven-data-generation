@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- DW6 -->
+<head>
+<!-- Copyright 2005 Macromedia, Inc. All rights reserved. -->
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>CFG-Editor</title>
+<!-- TemplateEndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../mm_health_nutr.css" type="text/css" />
+<script language="JavaScript" type="text/javascript">
+//--------------- LOCALIZEABLE GLOBALS---------------
+var d=new Date();
+monthname= new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+//Ensure correct for language. English is "January 1, 2004"
+var TODAY = monthname[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+//--------------- END LOCALIZEABLE   ---------------
+</script>
+<style type="text/css">
+<!--
+.Stil1 {
+	color: #56829f;
+	font-size: 30px;
+}
+.Stil2 {color: #000000; }
+.Stil3 {
+	color: #FFFFFF
+}
+.Stil4 {font-size: 18px}
+-->
+</style>
+<!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+</head>
+<body bgcolor="#F4FFE4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr bgcolor="#D5EDB3">
+    <td width="382" colspan="3" rowspan="2" bgcolor="#56829f"><img src="../cfg_editor.jpg" alt="Header image" width="382" height="101" border="0" /></td>
+    <td width="378" height="50" colspan="3" align="center" valign="bottom" nowrap="nowrap" bgcolor="#fd851b" class="Stil2" id="logo">CFG-Editor</td>
+    <td width="100%" bgcolor="#fd851b">&nbsp;</td>
+  </tr>
+
+  <tr bgcolor="#D5EDB3">
+    <td height="51" colspan="3" align="center" valign="top" bgcolor="#fd851b" class="Stil2" id="tagline">Anleitung &amp; Hilfe</td>
+	<td width="100%" bgcolor="#fd851b">&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td height="3" colspan="7" bgcolor="#56829f"><img src="../mm_spacer.gif" alt="" width="1" height="2" border="0" /></td>
+  </tr>
+
+  <tr>
+    <td colspan="7" bgcolor="#99CC66" background="../mm_dashed_line.gif"><img src="../mm_dashed_line.gif" alt="line decor" width="4" height="3" border="0" /></td>
+  </tr>
+
+  <tr bgcolor="#99CC66">
+  	<td height="20" colspan="7" bgcolor="#56829f" class="Stil3" id="dateformat">&nbsp;&nbsp;<script language="JavaScript" type="text/javascript">
+      document.write(TODAY);	</script>	</td>
+  </tr>
+  <tr bgcolor="#56829">
+    <td height="4" colspan="7" bgcolor="#56829f"><img src="../mm_dashed_line.gif" alt="line decor" width="4" height="3" border="0" /></td>
+  </tr>
+
+  <tr>
+    <td height="2" colspan="7" bgcolor="#56829f"><img src="../mm_spacer.gif" alt="" width="1" height="2" border="0" /></td>
+  </tr>
+
+ <tr>
+    <td width="165" valign="top" bgcolor="#56829f">
+	<table border="0" cellspacing="0" cellpadding="0" width="165" id="navigation">
+        <tr>
+          <td width="165" bgcolor="#56829f">&nbsp;<br />
+		 &nbsp;<br /></td>
+        </tr>
+        <tr>
+          <td width="165" bgcolor="#56829f"><a href="../index.html" class="navText">Hauptseite</a></td>
+        </tr>
+        <tr>
+          <td width="165" bgcolor="#56829f"><a href="../install.html" class="navText">Installation</a></td>
+        </tr>
+        <tr>
+          <td width="165" bgcolor="#56829f"><a href="javascript:;" class="navText">Funktionen</a></td>
+        </tr>
+        <tr>
+          <td width="165" bgcolor="#56829f"><a href="javascript:;" class="navText">Erste Schritte</a></td>
+        </tr>
+        <tr>
+          <td width="165" bgcolor="#56829f">&nbsp;</td>
+        </tr>
+      </table>
+ 	 <br />
+  	&nbsp;<br />
+  	&nbsp;<br />
+  	&nbsp;<br /> 	</td>
+    <td width="50"><img src="../mm_spacer.gif" alt="" width="50" height="1" border="0" /></td>
+    <td width="305" colspan="2" valign="top"><img src="../mm_spacer.gif" alt="" width="305" height="1" border="0" /><br />
+	&nbsp;<br />
+	&nbsp;<br />
+	<table border="0" cellspacing="0" cellpadding="0" width="356">
+        <tr>
+          <td width="356" class="pageName Stil1">Hauptseite</td>
+		</tr>
+
+		<tr>
+          <td class="bodyText Stil4"><p>&nbsp;</p>
+          <p align="justify">CFG-Editor ist ein Programm zur Erstellung von kontextfreien Grammatiken. Diese werden benötigt regelbasiertes Verhalten zu modellieren. Dabei kann jedes beliebige Verhalten abgebildet werden unter der Bedinung, dass in einem vorherigen Schritt dieses entsprechend klassifiziert wird.</p>
+          <p align="justify">&nbsp;</p>
+          <p align="justify">Die Grammatik die mit diesem Programm erstellt wird, definiert die Intentionserken- nung. Dabei wird das Nutzerverhalten mit parsing-Techniken interpretiert.</p>
+          <p align="justify">&nbsp;</p></td>
+        </tr>
+      </table>
+	 <br />
+	&nbsp;<br />	</td>
+    <td width="50"><img src="../mm_spacer.gif" alt="" width="50" height="1" border="0" /></td>
+        <td width="190" valign="top"><br />
+		&nbsp;<br /></td>
+	<td width="100%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="165">&nbsp;</td>
+    <td width="50">&nbsp;</td>
+    <td width="167">&nbsp;</td>
+    <td width="138">&nbsp;</td>
+    <td width="50">&nbsp;</td>
+    <td width="190">&nbsp;</td>
+	<td width="100%">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

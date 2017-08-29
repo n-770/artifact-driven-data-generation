@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lsmi:DataGenerator
+	xmlns:lsmi="http://www.mi.wiai.uni-bamberg.de/datagenerator"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mi.wiai.uni-bamberg.de/datagenerator testdata_collection.xsd">
+	<TestDataCollection>
+		<Documents amount="2">
+			<Document name="specification sheet" id="xxx-xxx-xx" path="/user/home/testData/collection/Specification sheet.tex">
+				<Facet name="author">Michael Munz, Matthias Munz, Andreas Munz</Facet>
+				<Facet name="created">Mar/02/2009</Facet>
+				<Facet name="modified">May/13/2009</Facet>
+				<Facet name="processPhase">Requirement analysis</Facet>
+				<Facet name="fileName">Specification sheet</Facet>
+				<Facet name="version">1.5</Facet>
+				<Facet name="title">Retrieval engine</Facet>
+				<Facet name="fileFormat">tex</Facet>
+			</Document>
+			<Document name="book" id="xxx-xxx-xx" path="/user/home/testData/collection/Head First Statistics.pdf">
+				<Facet name="author">Dawn Griffiths</Facet>
+				<Facet name="created">May/13/2009</Facet>
+				<Facet name="modified">May/13/2009</Facet>
+				<Facet name="processPhase">n.a.</Facet>
+				<Facet name="fileName">Head First Statistics</Facet>
+				<Facet name="fileFormat">pdf</Facet>
+				<Facet name="publisher">O'Reilly</Facet>
+				<Facet name="edition">1st</Facet>
+				<Facet name="isbn">978-0-596-52758-7</Facet>
+				<Facet name="price">US $ 34.99</Facet>
+				<Facet name="published">Aug/2008</Facet>
+				<Facet name="language">English</Facet>
+				<Facet name="category">Statistic</Facet>
+			</Document>
+		</Documents>
+		<Products amount="0">
+		</Products>
+	</TestDataCollection>
+</lsmi:DataGenerator>

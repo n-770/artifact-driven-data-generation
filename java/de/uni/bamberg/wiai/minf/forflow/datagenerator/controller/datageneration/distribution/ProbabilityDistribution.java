@@ -1,0 +1,632 @@
+package de.uni.bamberg.wiai.minf.forflow.datagenerator.controller.datageneration.distribution;
+
+import java.security.GeneralSecurityException;
+import java.security.SecureRandom;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
+import org.uncommons.maths.number.NumberGenerator;
+import org.uncommons.maths.random.AESCounterRNG;
+import org.uncommons.maths.random.CMWC4096RNG;
+import org.uncommons.maths.random.CellularAutomatonRNG;
+import org.uncommons.maths.random.JavaRNG;
+import org.uncommons.maths.random.MersenneTwisterRNG;
+import org.uncommons.maths.random.XORShiftRNG;
+
+import de.uni.bamberg.wiai.minf.forflow.datagenerator.controller.datageneration.filltype.ObserverFillBehaviour;
+import de.uni.bamberg.wiai.minf.forflow.datagenerator.view.message.ErrorMessage;
+
+/**
+ * Probability distributions are a fundamental concept in statistics.
+ * We need it to simulate random numbers using a specific probability
+ * distribution.
+ * </p>
+ * <font size=6><b>Event</b></font></br>
+ * An event is any occurrence that has a probability attached to it.
+ * In other words, an event is any outcome where you can say how
+ * likely it is to occur.
+ * </p>
+ * Probability is measured on a scale of 0 to 1. If an event is impossible,
+ * it has a probability of 0. If it's an absolute certainty,
+ * then the probability is 1.
+ * </p>
+ * <font size=6><b>Distributions</b></font></br>
+ * In general probability distributions are divided in two subsets:
+ * <ul>
+ * 		<li>discrete probability distribution</li>
+ * 		<li>continuous probability distribution</li>
+ * </ul>
+ * <font size=6><b>Discrete Probability</b></font></br>
+ * A discrete probability function can take a discrete number of values.
+ * This means that it can only take exact values.
+ * Each of these discrete values has a certain probability of
+ * occurrence that is between [0, 1].
+ * That is, a discrete function that allows negative values or
+ * values greater than one is not a probability distribution. 
+ * </p>
+ * <font size=6><b>Continuous Probability</b></font></br>
+ * A continuous probability function can take countless values.
+ * It's frequently data that is <i>measured</i> in some way rather
+ * than <i>counted</i>, and a lot depends on the degree of precision
+ * you need to measure to. Continuous data is like a smooth, continuous
+ * path. With this probability function you need to focus on a particular
+ * level of accuracy and the probability of getting a range of values.
+ * 
+ * @author Michael Munz
+ * @version 0.1
+ * @since Apr/20/09
+ */
+public abstract class ProbabilityDistribution implements ObservableDistribution,
+														 ObserverFillBehaviour,
+														 Cloneable
+{
+	/**
+	 * holds the name of the probability distribution.
+	 * This is only for displaying concerns.
+	 */
+	protected String name = null;
+	
+	/**
+	 * the lower bound
+	 */
+	private int lowerBound = 0;
+	
+	/**
+	 * the upper bound
+	 */
+	private int upperBound = 0;
+	
+	/**
+	 * this is the <i>N = &Sigma;n_i</i> value
+	 * from fill behaviour. It is passed down here
+	 * with the observer pattern.
+	 * </p>
+	 * We need that value to get the distribution
+	 * to work properly.
+	 */
+	private int N = 0;
+	
+	/**
+	 * sole default constructor
+	 */
+	public ProbabilityDistribution()
+	{
+	}
+	
+	/**
+	 *  <font size=6><b>Clone Constructor</b></font></br>
+	 * This constructor is only visible to package and is 
+	 * used to make a copy of this distribution.
+	 * 
+	 * @param distribution
+	 * 		object to clone
+	 */
+	protected ProbabilityDistribution(ProbabilityDistribution distribution)
+	{
+		this.name = distribution.getName();
+	}
+	
+	/**
+	 * this method generates the expected values for any
+	 * probability distribution. Expected values form
+	 * the shape of a probability distribution, like
+	 * the bell curve of a normal distribution.
+	 * </p>
+	 * <font size=6><b>Visualizing</b></font></br>
+	 * This method is intended to support in the decision
+	 * of choosing the right probability distribution by
+	 * visualizing it.
+	 * </p>
+	 * <font size=6><b>X, P(X=x)</b></font></br>
+	 * X is a variate and follows any probability distribution
+	 * with the probability P(X=x).
+	 * 
+	 * @return
+	 * 		Map(X, P(X=x))
+	 */
+	public abstract Map<Double, Double> generateExpectedValues();
+	
+	/**
+	 * generates values with the help of this probability distribution.
+	 * This is the most convenient way to get values following the
+	 * subject to probability distribution. The parameter passed in
+	 * tells something about how many values are expected to be generated.
+	 * Because there are no further setting the default random number
+	 * generated is used. This is one way to make is easier to the
+	 * user. Because the tester doesn't have to know anything about
+	 * random number generators.
+	 * </p>
+	 * <font size=6><b>Convention on returned values</b></font></br>
+	 * All numbers generated by this method are stored in a collection
+	 * object. More precisely, in a map. This information will you to
+	 * get the values correct out of it.
+	 * </p>
+	 * Suppose you've passed in <i>n</i> as 5. This means there will be
+	 * five random numbers returned. So the overall size of the object
+	 * returned is five, too.
+	 * </p>
+	 * The map object consists of two digits as <i>double</i> values.</br>
+	 * The 1st is the <i>key</i> value and is used as an index while
+	 * the 2nd value holds the actual <i>value</i>. In that context the 
+	 * value is any generated random number. To get the values you need the
+	 * corresponding keys. Because the keys are the indices, as mentioned already,
+	 * you get the values by using the indices.
+	 * 
+	 * @param n
+	 * 		how many values are supposed to get returned?
+	 * @return
+	 * 		a list with values stored in a map collection object.
+	 */
+	public Map<Double, Double> generateValues(int n)
+	{
+		return this.generateValues(n, this.getDefaultRNG());
+	}
+	
+	/**
+	 * generates values with the help of this probability distribution.
+	 * This method is useful when testers want pass it's own random
+	 * number generated which is used in the generation process.
+	 * Instead of using the default RNG the passed down RNG is used.
+	 * </p>
+	 * <font size=6><b>Random number generators</b></font></br>
+	 * There are a handful of different RND's shipped with. The full list
+	 * of them and there advantages and backdraws are listed in {@link PRNG}.
+	 * Use this informations to make your choice.
+	 * </p>
+	 * Notice, it is possible to use any RNG not used those listed above.
+	 * Any RNG implementing java.util.random would be a possible candidate.
+	 * </p>
+	 * <font size=6><b>Convention on returned values</b></font></br>
+	 * All numbers generated by this method are stored in a collection
+	 * object. More precisely, in a map. This information will you to
+	 * get the values correct out of it.
+	 * </p>
+	 * Suppose you've passed in <i>n</i> as 5. This means there will be
+	 * five random numbers returned. So the overall size of the object
+	 * returned is five, too.
+	 * </p>
+	 * The map object consists of two digits as <i>double</i> values.</br>
+	 * The 1st is the <i>key</i> value and is used as an index while
+	 * the 2nd value holds the actual <i>value</i>. In that context the 
+	 * value is any generated random number. To get the values you need the
+	 * corresponding keys. Because the keys are the indices, as mentioned already,
+	 * you get the values by using the indices.
+	 * 
+	 * @param n
+	 * 		states, how many values to generate 
+	 * @param random
+	 * 		tells which random number generated to use for generating numbers.
+	 * @return
+	 * 		list of generated numbers.
+	 */
+	public Map<Double, Double> generateValues(int n, PRNG random)
+	{
+		return this.generateValues(n, this.getRNG(random));
+	}
+	
+	/**
+	 * generates values with the help of this probability distribution.
+	 * This method is useful when testers want pass it's own random
+	 * number generated which is used in the generation process.
+	 * Instead of using the default RNG the passed down RNG is used.
+	 * </p>
+	 * <font size=6><b>Random number generators</b></font></br>
+	 * There are a handful of different RND's shipped with. The full list
+	 * of them and there advantages and backdraws are listed in {@link PRNG}.
+	 * Use this informations to make your choice.
+	 * </p>
+	 * Notice, it is possible to use any RNG not used those listed above.
+	 * Any RNG implementing java.util.random would be a possible candidate.
+	 * </p>
+	 * <font size=6><b>Convention on returned values</b></font></br>
+	 * All numbers generated by this method are stored in a collection
+	 * object. More precisely, in a map. This information will you to
+	 * get the values correct out of it.
+	 * </p>
+	 * Suppose you've passed in <i>n</i> as 5. This means there will be
+	 * five random numbers returned. So the overall size of the object
+	 * returned is five, too.
+	 * </p>
+	 * The map object consists of two digits as <i>double</i> values.</br>
+	 * The 1st is the <i>key</i> value and is used as an index while
+	 * the 2nd value holds the actual <i>value</i>. In that context the 
+	 * value is any generated random number. To get the values you need the
+	 * corresponding keys. Because the keys are the indices, as mentioned already,
+	 * you get the values by using the indices.
+	 * 
+	 * @param n
+	 * 		states, how many values to generate 
+	 * @param random
+	 * 		tells which random number generated to use for generating numbers.
+	 * @return
+	 * 		list of generated numbers
+	 */
+	public Map<Double, Double> generateValues(int n, Random random)
+	{
+		Map<Double, Double> values = null;
+		
+		if(this.isDiscrete())
+		{
+			values = this.generateDiscreteValues(n, random);
+		}
+		else
+		{
+			values = this.generateContinuousValues(n, random);
+		}
+		
+		return values;
+	}
+	
+	/**
+	 * if the probability distribution is a discrete one, 
+	 * this method is gonna be used for generating random numbers.
+	 * A discrete probability function can take a discrete number of values.
+	 * Each implemented probability distribution must tell to which
+	 * category it belongs.
+	 * 
+	 * @param n
+	 * 		the amount of numbers to generate
+	 * @param random
+	 * 		the random number generator (RNG) to use for
+	 * @return
+	 * 		the list of generated numbers
+	 */
+	private Map<Double, Double> generateDiscreteValues(int n, Random random)
+	{
+		Map<Double, Double> values = new HashMap<Double, Double>();
+		
+		NumberGenerator<Integer> generator = this.generatorInt(random);
+		
+		for(int i=0; i<n; i++)
+		{
+			int value = generator.nextValue().intValue();
+			
+			values.put(Double.valueOf(i), Double.valueOf(value));
+		}
+		
+		return values;
+	}
+	
+	/**
+	 * This method is used when the probability distribution is
+	 * in the continuous section.
+	 * A continuous probability function can take countless values.
+	 * Each implemented probability distribution must tell to which
+	 * category it belongs.
+	 * 
+	 * @param n
+	 * 		the amount of numbers to generate
+	 * @param random
+	 * 		the random number generator (RNG) to use for
+	 * @return
+	 * 		the list of generated numbers
+	 */
+	private Map<Double, Double> generateContinuousValues(int n, Random random)
+	{
+		Map<Double, Double> res = new HashMap<Double, Double>();
+		
+		NumberGenerator<Double> generator = this.generatorDouble(random);
+		
+		for(int i=0; i<n; i++)
+		{
+			double value = generator.nextValue().doubleValue();
+			
+			value = Math.ceil(value);
+			
+			res.put(Double.valueOf(i), Double.valueOf(value));
+		}
+		
+		return res;
+	}
+	
+	/**
+	 * creates a random number generator.
+	 * Random number generators help us to generate a sequence of
+	 * independent random numbers with a specified distribution.
+	 * It's important to make distinction between random numbers
+	 * and pseudo random numbers.
+	 * </p>
+	 * <font size=6><b>Random numbers</b></font></br>
+	 * Truly random numbers must introduce some non-deterministic input.
+	 * Some real world phenomenon that is unpredictable.
+	 * Computer are deterministic and they're generally incapable of
+	 * doing things at random.
+	 * </p>
+	 * <font size=6><b>Pseudo random numbers</b></font></br>
+	 * Since computer cannot generate random numbers, the idea is,
+	 * for a given probability distribution, to develop an algorithm
+	 * such that the numbers appear to be random with the specified
+	 * distribution. So pseudo random numbers are not really random
+	 * at all. They are the result of deterministic mathematical
+	 * formulae. Pseudo random number generators (PRNG) start with a 
+	 * single numeric seed value.
+	 * 
+	 * @param random
+	 * 		any PRNG which extends {@link Random} interface of the Java.util.Random
+	 * 		can be plugged in.
+	 * @return
+	 * 		Interface for providing different types of sequences of numbers
+	 */
+	protected abstract NumberGenerator<Integer> generatorInt(Random random);
+	
+	/**
+	 * creates a random number generator.
+	 * Random number generators help us to generate a sequence of
+	 * independent random numbers with a specified distribution.
+	 * It's important to make distinction between random numbers
+	 * and pseudo random numbers.
+	 * </p>
+	 * <font size=6><b>Random numbers</b></font></br>
+	 * Truly random numbers must introduce some non-deterministic input.
+	 * Some real world phenomenon that is unpredictable.
+	 * Computer are deterministic and they're generally incapable of
+	 * doing things at random.
+	 * </p>
+	 * <font size=6><b>Pseudo random numbers</b></font></br>
+	 * Since computer cannot generate random numbers, the idea is,
+	 * for a given probability distribution, to develop an algorithm
+	 * such that the numbers appear to be random with the specified
+	 * distribution. So pseudo random numbers are not really random
+	 * at all. They are the result of deterministic mathematical
+	 * formulae. Pseudo random number generators (PRNG) start with a 
+	 * single numeric seed value.
+	 * 
+	 * @param random
+	 * 		any PRNG which extends {@link Random} interface of the Java.util.Random
+	 * 		can be plugged in.
+	 * @return
+	 * 		Interface for providing different types of sequences of numbers
+	 */
+	protected abstract NumberGenerator<Double> generatorDouble(Random random);
+	
+	/**
+	 * gets the random number generator related to the enum passed
+	 * in. If the passed in enum did match any statement the default
+	 * is returned.
+	 * 
+	 * @param random
+	 * 		tells which random number generator to return 
+	 * @return
+	 * 		random number generator
+	 */
+	public final Random getRNG(PRNG random)
+	{
+		Random res = null;
+		
+		// Mersenne
+		if(random.equals(PRNG.MersenneTwister))
+		{
+			res = new MersenneTwisterRNG();
+		}
+		
+		// AESCounter
+		else if(random.equals(PRNG.AESCounter))
+		{
+			try
+			{
+				res = new AESCounterRNG();
+			}
+			catch(GeneralSecurityException gse)
+			{
+				ErrorMessage.getInstance().printMessage(gse, this.getClass().getName(), "GeneralSecurityException");
+			}
+		}
+		
+		// CMWC4096
+		else if(random.equals(PRNG.CMWC4096))
+		{
+			res = new CMWC4096RNG();
+		}
+		
+		// SecureRandom
+		else if(random.equals(PRNG.SecureRandom))
+		{
+			res = new SecureRandom();
+		}
+		
+		// XORShift
+		else if(random.equals(PRNG.XORShift))
+		{
+			res = new XORShiftRNG();
+		}
+		
+		// CellularAutomation
+		else if(random.equals(PRNG.CelllarAutomaton))
+		{
+			res = new CellularAutomatonRNG();
+		}
+		
+		// JavaRNG
+		else if(random.equals(PRNG.JavaRNG))
+		{
+			res = new JavaRNG();
+		}
+		
+		// default
+		else
+		{
+			res = this.getDefaultRNG();
+		}
+		
+		return res;
+	}
+	
+	/**
+	 * gets the default random number generator.
+	 * 
+	 * @return
+	 * 		Mersenne Twister
+	 */
+	public final Random getDefaultRNG()
+	{
+		return new MersenneTwisterRNG();
+	}
+	
+	/**
+	 * Expectation gives a prediction of the results.
+	 * The expectation of a variable X is like the <i>mean</i>,
+	 * but for probability distributions.
+	 * The expectation gives the typical or average value of a
+	 * variable but it doesn't tell anything about how the
+	 * values are spread out.
+	 * </p>
+	 * <code>
+	 * E(X) = &Sigma;xP(X=x) </br>
+	 * E(X) = &mu;
+	 * </code>
+	 * 
+	 * @return
+	 * 		E(X) = &mu;
+	 */
+	public abstract int getExpectation();
+	
+	/**
+	 * Use variance to measure the spread of values.
+	 * In other words, variance tells you about the
+	 * spread of the result.
+	 * </p>
+	 * <code>
+	 * Var(X) = E(X-&mu;)&sup2; </br>
+	 * E(X-&mu;)&sup2; = &Sigma;(x-&mu;)&sup2;P(X=x)
+	 * </code>
+	 * 
+	 * @return
+	 * 		Var(X) = E(X-&mu;)&sup2;
+	 */
+	public abstract double getVariance();
+	
+	/**
+	 * As well as having a variance, probability distributions
+	 * have a standard deviation.
+	 * It's a way of measuring how far away from the center
+	 * you can expect your values to be.
+	 * </p>
+	 * <code>
+	 * 	&sigma; = &radic;Var(X)
+	 * </code>
+	 * 
+	 * @return
+	 * 		&sigma; = &radic;Var(X)
+	 */
+	public abstract int getStandardDeviation();
+	
+	/**
+	 * gets an description of this kind of probability distribution.
+	 * That is, the name of the distribution, the expectation 
+	 * and the variance.
+	 * </p>
+	 * The general form of any description is like:
+	 * </p>
+	 * <ul>
+	 * 	<li>probability distribution, E(X), Var(X)</li>
+	 * </ul>
+	 * 
+	 * @return
+	 * 		probability distribution, E(X), Var(X)
+	 */
+	public abstract String getDescription();
+	
+	/**
+	 * <font size=6><b>Distributions</b></font></br>
+	 * In general probability distributions are divided in two subsets:
+	 * <ul>
+	 * 		<li>discrete probability distribution</li>
+	 * 		<li>continuous probability distribution</li>
+	 * </ul>
+	 * 
+	 * <font size=6><b>Discrete Probability</b></font></br>
+	 * A discrete probability function can take a discrete number of values.
+	 * This means that it can only take exact values.
+	 * Each of these discrete values has a certain probability of
+	 * occurrence that is between [0, 1].
+	 * That is, a discrete function that allows negative values or
+	 * values greater than one is not a probability distribution. 
+	 * </p>
+	 * <font size=6><b>Continuous Probability</b></font></br>
+	 * A continuous probability function can take countless values.
+	 * It's frequently data that is <i>measured</i> in some way rather
+	 * than <i>counted</i>, and a lot depends on the degree of precision
+	 * you need to measure to. Continuous data is like a smooth, continuous
+	 * path. With this probability function you need to focus on a particular
+	 * level of accuracy and the probability of getting a range of values..
+	 * 
+	 * @return
+	 * 		true, if discrete
+	 */
+	public abstract boolean isDiscrete();
+	
+	/**
+	 * gets the lower bound
+	 * 
+	 * @return
+	 * 		lower bound
+	 */
+	public final int getLowerBound()
+	{
+		return this.lowerBound;
+	}
+	
+	/**
+	 * gets the upper bound
+	 * 
+	 * @return
+	 * 		upper bound
+	 */
+	public final int getUpperBound()
+	{
+		return this.upperBound;
+	}
+	
+	/**
+	 * this is the <i>N = &Sigma;n_i</i> value
+	 * from fill behaviour. It is passed down here
+	 * with the observer pattern.
+	 * </p>
+	 * We need that value to get the distribution
+	 * to work properly.
+	 * 
+	 * @return
+	 * 		N = &Sigma;n_i
+	 */
+	public final int getN()
+	{
+		return this.N;
+	}
+	
+	/**
+	 * gets the name of the current probability distribution.
+	 * It is only for displaying concerns.
+	 * 
+	 * @return
+	 * 		name of distribution used.
+	 */
+	public final String getName()
+	{
+		if(this.name != null)
+		{
+			return this.name;
+		}
+		else
+		{
+			return "";
+		}
+	}
+	
+	@Override
+	public void updateFillBehaviour(int lowerBound, int upperBound, int N)
+	{
+		this.lowerBound = lowerBound;
+		this.upperBound = upperBound;
+		this.N = N;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return this.name;
+	}
+	
+	@Override
+	protected abstract Object clone() throws CloneNotSupportedException;
+}

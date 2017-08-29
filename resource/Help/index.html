@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- DW6 -->
+<head>
+<!-- Copyright 2005 Macromedia, Inc. All rights reserved. -->
+<title>DataGenerator 0.1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="mm_health_nutr.css" type="text/css" />
+<script language="JavaScript" type="text/javascript">
+//--------------- LOCALIZEABLE GLOBALS---------------
+var d=new Date();
+monthname= new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+//Ensure correct for language. English is "January 1, 2004"
+var TODAY = monthname[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+//--------------- END LOCALIZEABLE   ---------------
+
+
+function MM_CheckFlashVersion(reqVerStr,msg){
+  with(navigator){
+    var isIE  = (appVersion.indexOf("MSIE") != -1 && userAgent.indexOf("Opera") == -1);
+    var isWin = (appVersion.toLowerCase().indexOf("win") != -1);
+    if (!isIE || !isWin){  
+      var flashVer = -1;
+      if (plugins && plugins.length > 0){
+        var desc = plugins["Shockwave Flash"] ? plugins["Shockwave Flash"].description : "";
+        desc = plugins["Shockwave Flash 2.0"] ? plugins["Shockwave Flash 2.0"].description : desc;
+        if (desc == "") flashVer = -1;
+        else{
+          var descArr = desc.split(" ");
+          var tempArrMajor = descArr[2].split(".");
+          var verMajor = tempArrMajor[0];
+          var tempArrMinor = (descArr[3] != "") ? descArr[3].split("r") : descArr[4].split("r");
+          var verMinor = (tempArrMinor[1] > 0) ? tempArrMinor[1] : 0;
+          flashVer =  parseFloat(verMajor + "." + verMinor);
+        }
+      }
+      // WebTV has Flash Player 4 or lower -- too low for video
+      else if (userAgent.toLowerCase().indexOf("webtv") != -1) flashVer = 4.0;
+
+      var verArr = reqVerStr.split(",");
+      var reqVer = parseFloat(verArr[0] + "." + verArr[2]);
+  
+      if (flashVer < reqVer){
+        if (confirm(msg))
+          window.location = "http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash";
+      }
+    }
+  } 
+}
+</script>
+<style type="text/css">
+<!--
+.Stil1 {
+	color: #56829f;
+	font-size: 30px;
+}
+.Stil2 {color: #000000; }
+.Stil3 {
+	color: #FFFFFF
+}
+.Stil4 {font-size: 18px}
+
+body {
+	margin:0px;
+	}
+	
+ h3
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:Arial;
+}
+ul
+	{margin-bottom:0cm;}
+ li.MsoNormal
+	{margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+		margin-left: 0cm;
+	margin-right: 0cm;
+	margin-top: 0cm;
+}
+a:visited {
+	color: #0000FF;
+}
+.style17 {
+	color: #000000;
+	background-color: #FD851B;
+}
+.style18 {
+	color: #003366;
+	line-height: 16px;
+	letter-spacing: .1em;
+	text-decoration: none;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	font-size: 10pt;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.style19 {
+	font-family: Helvetica;
+}
+.style20 {
+	font-size: 11pt;
+}
+a:active {
+	color: #0000FF;
+}
+-->
+</style>
+
+<script type="text/javascript" language="JavaScript">
+<!--
+// www.web-toolbox.net , W. Jansen
+// Übergabeparameter: bildquelle,breite,höhe,bildtitel
+// hand over parameters: imagesource,width,height,title
+
+function showpic(bildurl,b,h,bildtitel)
+{
+var eigenschaften,sbreite,shoehe,fenster,b,h;
+
+
+// wenn eine feste Position für die Anzeige gewünscht wird
+// dann für die Variable 'FestePosition' ein "ja" eintragen
+// und die X- / Y-Werte (linke obere Ecke) hier eintragen
+
+var FestePosition = "ja";  // "ja" oder "nein" eintragen
+VonLinks = 20;
+VonOben = 20;
+
+if(FestePosition == "ja") {
+x = VonLinks;
+y = VonOben;
+} else {
+
+// stellt die Bildschirmabmessungen fest
+var ns6 = (!document.all && document.getElementById);
+var ie4 = (document.all);
+var ns4 = (document.layers);
+
+if(ns6||ns4) {
+sbreite = innerWidth;
+shoehe = innerHeight;
+}
+else if(ie4) {
+sbreite = document.body.clientWidth;
+shoehe = document.body.clientHeight;
+//shoehe = document.documentElement.clientHeight;
+}
+
+x = parseInt((sbreite-b)/2);
+y = parseInt((shoehe-h)/2);
+
+}
+
+
+eigenschaften="left="+x+",top="+y+",screenX="+x+",screenY="+y+",width="+b+",height="+h+",menubar=no,toolbar=no,location=no,status=no,scrollbars=no";
+
+fenster=window.open("","",eigenschaften);
+fenster.focus();
+fenster.document.open();
+with (fenster) {
+  document.write('<html><head>');
+  // geändert 2004 für Mozilla
+  document.write('<scr' + 'ipt type="text/javascr' + 'ipt" language="JavaScr' + 'ipt">');
+  document.write("function click() { window.close(); } ");  // bei click  schliessen
+  document.write("document.onmousedown=click ");
+  // geändert 2004 für Mozilla
+  document.write('</scr' + 'ipt>');
+  document.write('<title>'+ bildtitel +'</title></head>');
+  // Zeile geändert Aug 2003 (Dreamweaver machte Probleme)
+  document.write('<' + 'body onblur="window.close();" ');// bei Focusverlust schliessen
+  document.write('marginwidth="0" marginheight="0" leftmargin="0" topmargin="0">');
+  document.write('<img src="'+ bildurl +'"border="0">');
+  document.write('</body></html>');
+  fenster.document.close();
+}
+}
+
+//-->
+</script>
+<script language="javascript">AC_FL_RunContent = 0;</script>
+<script src="AC_RunActiveContent.js" language="javascript"></script>
+</head>
+<body bgcolor="#F4FFE4" onload="MM_CheckFlashVersion('8,0,0,0','Für den Inhalt dieser Seite ist eine neuere Version von Adobe Flash Player erforderlich. Möchten Sie sie jetzt herunterladen?');">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr bgcolor="#D5EDB3">
+    <td width="382" colspan="3" rowspan="2" bgcolor="#56829f">
+	<img src="image001.gif" width="250" height="112" />&nbsp;</td>
+    <td width="378" height="50" align="center" valign="bottom" nowrap="nowrap" bgcolor="#fd851b" class="style17" id="logo">
+	DataGenerator 0.1</td>
+    <td width="100%" bgcolor="#fd851b">&nbsp;</td>
+  </tr>
+
+  <tr bgcolor="#D5EDB3">
+    <td height="51" align="center" valign="top" bgcolor="#fd851b" class="style17" id="tagline">
+	Manual</td>
+	<td width="100%" bgcolor="#fd851b">&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td height="3" colspan="5" bgcolor="#56829f"><img src="mm_spacer.gif" alt="" width="1" height="2" border="0" /></td>
+  </tr>
+
+  <tr bgcolor="#99CC66">
+  	<td height="20" colspan="5" bgcolor="#56829f" class="Stil3" id="dateformat">&nbsp;&nbsp;<script language="JavaScript" type="text/javascript">
+      document.write(TODAY);	</script>	</td>
+  </tr>
+
+  <tr>
+    <td height="2" colspan="5" bgcolor="#56829f"><img src="mm_spacer.gif" alt="" width="1" height="2" border="0" /></td>
+  </tr>
+
+ <tr>
+    <td width="165" valign="top" bgcolor="#56829f" style="height: 100%">
+	<table border="0" cellspacing="0" cellpadding="0" width="165" id="navigation">
+        <tr>
+          <td width="165" bgcolor="#56829f">&nbsp;<br />
+		 &nbsp;<br /></td>
+        </tr>
+        <tr>
+          <td width="165" bgcolor="#56829f"><a href="index.html" class="navText">
+			Main</a></td>
+        </tr>
+        <tr>
+          <td width="165" bgcolor="#56829f">
+			<a class="navText" href="interface.html">User Interface</a></td>
+        </tr>
+        <tr>
+          <td width="165" bgcolor="#56829f">
+			<a class="navText" href="model.html">Load Model</a></td>
+        </tr>
+        <tr>
+          <td width="165" bgcolor="#56829f">
+			<a class="navText" href="attributes.html">Setup Attributes</a></td>
+        </tr>
+                <tr>
+          <td width="165" bgcolor="#56829f">
+			<a class="navText" href="filltype.html">FillType</a></td>
+        </tr>
+        <tr>
+          <td width="165" bgcolor="#56829f">
+			<a class="navText" href="distribution.html">Distribution</a></td>
+        </tr>
+        <tr>
+          <td width="165" bgcolor="#56829f">
+			<a class="navText" href="generate.html">Generate Data</a></td>
+        </tr>
+        <tr>
+          <td width="165" height="37" bgcolor="#56829f">
+			<a class="style18" href="requirements.html">System Requirements</a></td>
+        </tr>
+      </table>
+ 	 <br />
+  	&nbsp;<br />
+  	&nbsp;<br />
+  	&nbsp;<br /> 	</td>
+    <td width="50"><img src="mm_spacer.gif" alt="" width="50" height="1" border="0" /></td>
+    <td colspan="2" valign="top" style="width: 100%"><img src="mm_spacer.gif" alt="" width="305" height="1" border="0" /><br />
+	&nbsp;<br />
+	&nbsp;<br />
+	<table border="0" cellspacing="0" cellpadding="0" style="width: 100%">
+        <tr>
+          <td class="pageName Stil1" style="height: 26px; ">Manual</td>
+		</tr>
+
+		<tr>
+          <td class="bodyText Stil4"><p>&nbsp;</p>
+<h2><span lang="EN-GB" style="mso-ansi-language: EN-GB" class="style19">Introduction<o:p></o:p></span></h2>
+<p class="MsoNormal">
+<span lang="EN-GB" style="font-size: 11.0pt; font-family: Helvetica; mso-bidi-font-family: Arial; mso-ansi-language: EN-GB">
+DataGenerator is a Java Desktop application based on Swing Application Framework 
+and can run on various operating systems.<o:p></o:p></span></p>
+<p class="MsoNormal">
+<span lang="EN-GB" style="font-size: 11.0pt; font-family: Helvetica; mso-bidi-font-family: Arial; mso-ansi-language: EN-GB">
+Its purpose is to generate test data and has been developed for the Chair of 
+Media Informatics at the <st1:place
+w:st="on"><st1:PlaceType w:st="on">University</st1:PlaceType> of <st1:PlaceName
+ w:st="on">Bamberg</st1:PlaceName></st1:place> within the scope of a Bachelor 
+Thesis.<o:p></o:p></span></p>
+<p class="MsoNormal">
+<span lang="EN-GB" style="font-size: 11.0pt; font-family: Helvetica; mso-bidi-font-family: Arial; mso-ansi-language: EN-GB"><o:p>
+&nbsp;</o:p></span></p>
+			<p class="style20">
+<o:p>
+The actual version is 0.1</o:p></p>
+			<p class="style20">
+Here you ca<o:p>n see a Training Video, to become familiar with the DataGenerator.</o:p></p>
+			
+                        <script type="text/javascript">
+AC_FL_RunContent( 'codebase','http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0','width','662','height','531','id','FLVPlayer','src','FLVPlayer_Progressive','flashvars','&MM_ComponentVersion=1&skinName=Halo_Skin_3&streamName=tutorial&autoPlay=false&autoRewind=true','quality','high','scale','noscale','name','FLVPlayer','salign','lt','pluginspage','http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash','movie','FLVPlayer_Progressive' ); //end AC code
+</script><noscript><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="662" height="531" id="FLVPlayer">
+              <param name="movie" value="FLVPlayer_Progressive.swf" />
+              <param name="salign" value="lt" />
+              <param name="quality" value="high" />
+              <param name="scale" value="noscale" />
+              <param name="FlashVars" value="&MM_ComponentVersion=1&skinName=Halo_Skin_3&streamName=tutorial&autoPlay=false&autoRewind=true" />
+              <embed src="FLVPlayer_Progressive.swf" flashvars="&MM_ComponentVersion=1&skinName=Halo_Skin_3&streamName=tutorial&autoPlay=false&autoRewind=true" quality="high" scale="noscale" width="662" height="531" name="FLVPlayer" salign="LT" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" />              
+          </object></noscript>            
+            <p><font size="3">The HD Version can be found </font> <a href="../Help/Tutorial HD-720p.mp4"><font size="3">here</font></a></p>
+
+<body bgcolor="#ffffff">
+			</td>
+        </tr>
+
+      </table>
+	 <br />
+	&nbsp;<br />	</td>
+        <td width="190" valign="top"><br />
+		&nbsp;<br /></td>
+	<td width="100%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="165">&nbsp;</td>
+    <td width="50">&nbsp;</td>
+    <td width="167">&nbsp;</td>
+    <td width="138">&nbsp;</td>
+    <td width="190">&nbsp;</td>
+	<td width="100%">&nbsp;</td>
+  </tr>
+</table>
+</body>
+
+
+</html>

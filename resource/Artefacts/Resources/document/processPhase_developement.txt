@@ -1,0 +1,10 @@
+Figure out Feature List
+Use Case Diagrams
+Breaking up the problem
+Requirement analysis
+Domain analysis
+Preliminary design
+Implementation
+Integration
+Testing
+Delivery

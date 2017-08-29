@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lsmi:DataGenerator xmlns:lsmi="http://www.mi.wiai.uni-bamberg.de/datagenerator" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mi.wiai.uni-bamberg.de/datagenerator startup.xsd">
+  <System>
+    <Startup>
+      <Artefact>
+        <Type name="Documents" createDummyFile="true" />
+        <Type name="Products" createDummyFile="false" />
+      </Artefact>
+      <Logging>true</Logging>
+      <Date>
+        <Min>2007</Min>
+      </Date>
+      <Unit>
+        <Currency>
+          <Type>Euro</Type>
+          <Type>US Dollar</Type>
+          <Type>Pounds</Type>
+        </Currency>
+        <Length>
+          <Type>mm</Type>
+          <Type>cm</Type>
+          <Type>m</Type>
+          <Type>km</Type>
+        </Length>
+        <Mass>
+          <Type>g</Type>
+          <Type>kg</Type>
+          <Type>t</Type>
+          <Type>ml</Type>
+          <Type>l</Type>
+        </Mass>
+        <Math>
+          <Type>%</Type>
+          <Type>°</Type>
+        </Math>
+        <Temperature>
+          <Type>C°</Type>
+          <Type>F°</Type>
+          <Type>K</Type>
+        </Temperature>
+        <Time>
+          <Type>sec</Type>
+          <Type>min</Type>
+          <Type>h</Type>
+        </Time>
+        <Miscellaneous>
+          <Custom>
+            <Name>km/h</Name>
+            <Content>km/h</Content>
+          </Custom>
+          <Custom>
+            <Name>W/h</Name>
+            <Content>W/h</Content>
+          </Custom>
+        </Miscellaneous>
+      </Unit>
+    </Startup>
+  </System>
+</lsmi:DataGenerator>
+

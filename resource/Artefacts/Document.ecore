@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Document"
+    nsURI="http:///Document.ecore" nsPrefix="Document">
+  <eClassifiers xsi:type="ecore:EClass" name="Document" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="autor" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="erstellungsdatum" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="zuletztGeaendert" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prozessphase" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Erstellungsphase"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateiName" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Lastenheft" eSuperTypes="#//Document">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateiformat" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionierung" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="titel" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stand" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Date"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pflichtenheft" eSuperTypes="#//Document">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateiformat" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionierung" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="titel" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stand" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Date"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CADModell" eSuperTypes="#//Konstruktion">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateigroesse" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="polygones" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vertices" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="objects" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subObjects" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="materials" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textures" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateiformat" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Konstruktion" eSuperTypes="#//Document">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maßstab" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Stueckliste" eSuperTypes="#//Document">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="teileNr" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bedarf" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Montageanleitung" eSuperTypes="#//Anleitung">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lieferumfang" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="werkzeug" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Anleitung" eSuperTypes="#//Document">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="papierformat" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sprache" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="seiten" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="produktname" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bezeichnung" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateiformat" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="zielgruppe" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TechnischeZeichnung" eSuperTypes="#//Konstruktion">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="zeichnungsNr" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="benennung" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="materialangaben" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pruefvermerk" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="zeichnungsformat" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateiformat" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Beleg" eSuperTypes="#//Document">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="belegNr" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kundenNr" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mengenuebersichtsstueckliste" eSuperTypes="#//Stueckliste">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bezeichnung" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Struckturstueckliste" eSuperTypes="#//Stueckliste">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="baugruppe" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Benutzerhandbuch" eSuperTypes="#//Anleitung">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fachgebiet" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="herausgeber" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Buch" eSuperTypes="#//Document">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isbn" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="preis" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="herausgegeben" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sprache" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kategorie" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="herausgeber" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="edition" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jahr" ordered="false" lowerBound="1"
+        eType="#//PrimitiveTypes/Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateiformat" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Bestellung" eSuperTypes="#//Beleg">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bestellNr" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bestellDatum" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lieferdatum" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="betrag" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artikel" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artikelNr" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artikelAnzahl" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Rechnung" eSuperTypes="#//Beleg">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rechnungsNr" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rechnungsDatum" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="betrag" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Formular" eSuperTypes="#//Document">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="beschreibung" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Leihgeraeteformular" eSuperTypes="#//Formular">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="entleiher" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artikel" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artikelNr" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enliehenAm" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="zurueckAm" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Date"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Preisliste" eSuperTypes="#//Document">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="titel" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hersteller" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artikelBezeichnung" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artikelNr" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="preis" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lieferzeitInTage" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Lieferschein" eSuperTypes="#//Beleg">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bestellNr" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bestellDatum" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lieferDatum" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lieferant" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lieferantenNr" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lieferantenAnschrift" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Vertrag" eSuperTypes="#//Document">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vertragsDatum" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vertragsparteien" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Arbeitsvertrag" eSuperTypes="#//Vertrag">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="taetigkeit" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eintritt" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vertragsdauer" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vertragsart" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="arbeitszeit" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verguetung" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="urlaubstage" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Kaufvertrag" eSuperTypes="#//Vertrag">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kaufpreis" ordered="false"
+        lowerBound="1" eType="#//PrimitiveTypes/Double"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute1" ordered="false"
+        lowerBound="1"/>
+  </eClassifiers>
+  <eSubpackages name="PrimitiveTypes" nsURI="http:///Document/PrimitiveTypes.ecore"
+      nsPrefix="Document.PrimitiveTypes">
+    <eClassifiers xsi:type="ecore:EDataType" name="List" instanceClassName="List"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="date" instanceClassName="date"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Date" instanceClassName="Date"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Phase" instanceClassName="Phase"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Typ" instanceClassName="Typ"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Erstellungsphase" instanceClassName="Erstellungsphase"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Double" instanceClassName="Double"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="S" instanceClassName="S"/>
+  </eSubpackages>
+</ecore:EPackage>

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:lsmi="http://www.mi.wiai.uni-bamberg.de/datagenerator"
+	targetNamespace="http://www.mi.wiai.uni-bamberg.de/datagenerator">
+	
+	<xs:annotation>
+		<xs:documentation xml:lang="en">
+			This XSD file defines a XML Schema for XML files representing
+			those data that is loaded at startup time.
+			With the help of this file particular data types and information can be loaded
+			easily at startup and then available in the system to work with.
+		</xs:documentation>
+	</xs:annotation>
+	
+	<xs:element name="DataGenerator">
+		<xs:annotation>
+			<xs:documentation>
+				Represents the root element of startup XML file. Because each XML needs
+				exactly one and only one root it is restricted to hold that constraint.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="System" type="lsmi:SystemDT" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+		
+	<xs:complexType name="SystemDT">
+		<xs:annotation>
+			<xs:documentation>
+				Place here all information that the system needs to initialze itself properly.
+				This is exremly helpful when it comes to data that is meant to be generic.
+				The system can with it extended and maintained to one person's needs.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Startup" type="lsmi:StartupDT" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="StartupDT">
+		<xs:annotation>
+			<xs:documentation>
+				Defines all possible elements of the startup group. Remember, here is the content
+				stored needed at startup time.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Artefact" type="lsmi:ArtefactDT" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="PRNG" type="lsmi:PrngDT" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Logging" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Date" type="lsmi:DateDT" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Unit" type="lsmi:UnitDT" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ArtefactDT">
+		<xs:annotation>
+			<xs:documentation>
+				Because the system is intended to be as generic as possible, we need a way to customize
+				options. In particular, it holds the description of possible artefact types.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Type" type="lsmi:AbstractTypeDT" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="AbstractTypeDT">
+		<xs:annotation>
+			<xs:documentation>
+				A type describes an object, but it depends on the context what a type is. It's, of course, possible to extend
+				it and there's no resctriction in the upper bound. But it's restricted to Strings and each type name
+				has to begin with an upper case followed by one or more lower case characters.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="name" type="xs:anySimpleType" use="required"/>
+		<xs:attribute name="createDummyFile" type="xs:boolean" use="required"/>
+	</xs:complexType>
+	
+	<xs:complexType name="PrngDT">
+		<xs:annotation>
+			<xs:documentation>
+				Defines the pseudo random number generator to use as default when generating values.
+				If this element isn't used or defined, the system takes the default setting. That is MersenneTwister
+				random number generator.
+				There are different types possible and each has its advantages. More information about, what
+				PRNGs are supported by the system, please have a look at the API.
+				
+				Here is the current list of supported types:
+				MersenneTwister,
+				AESCounter,
+				CelllarAutomaton,
+				CMWC4096,
+				SecureRandom,
+				XORShift,
+				JavaRNG
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Default" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="DateDT">
+		<xs:annotation>
+			<xs:documentation>
+				Specifies an interval generated dates will lay within. The min is said to be the lower bound
+				and the max is the upper bound of possible dates. The values typed in are considered
+				as years. Notice, the minimum has to be set at any time while the maximum is optional. 
+				If it's not specified the the system will take the current year as default value.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Min" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Max" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="UnitDT">
+		<xs:annotation>
+			<xs:documentation>
+				Defining different weight and measurements to use with the system.
+				The below units can be extended to your own needs. Each of the following elements
+				used can only occure at most once.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Currency" type="lsmi:CurrencyDT" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Length" type="lsmi:LengthDT" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Mass" type="lsmi:MassDT" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Math" type="lsmi:MathDT" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Temperature" type="lsmi:TempDT" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Time" type="lsmi:TimeDT" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Miscellaneous" type="lsmi:OtherDT" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CurrencyDT">
+		<xs:annotation>
+			<xs:documentation>
+				Represents the currency concept in the Unit component.
+				Currency is the prevalent money accepted for exchange of goods in an economy
+				This type restricts any currency name to one or more upper case characters
+				followed by nothing or more lower case characters.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Type" type="xs:anySimpleType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="LengthDT">
+		<xs:annotation>
+			<xs:documentation>
+				Represents the length concept used in Unit component.
+				The length is responsible for all kinds of distances.
+				The types are restricted to strings to any upper and lower case.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Type" type="lsmi:GeneralType2" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="MassDT">
+		<xs:annotation>
+			<xs:documentation>
+				Represents the mass concept in Unit component.
+				In non-scientific areas it is also known as weight measurement.
+				The types are restricted to any upper and lower cases.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Type" type="lsmi:GeneralType2" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="MathDT">
+		<xs:annotation>
+			<xs:documentation>
+				Represents the math concept in Unit component.
+				The primary goal here is to provide mathematical symbols which can be used
+				in test data generation. The types are restricted to any simple type.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Type" type="xs:anySimpleType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TempDT">
+		<xs:annotation>
+			<xs:documentation>
+				Represents the temperature concept in Unit component.
+				Temperature is an important factor in a lot of product artefacts, though.
+				Temperature units like Celsius or Kelvin are stored here. Restrictes the type to any simple type.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Type" type="xs:anySimpleType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TimeDT">
+		<xs:annotation>
+			<xs:documentation>
+				To represent the time concept in Unit component this data type is used for.
+				It restricts the type element to any upper and lower case string.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Type" type="lsmi:GeneralType2" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="OtherDT">
+		<xs:annotation>
+			<xs:documentation>
+				Represents the Miscelleanous concept in Unit component.
+				Misc is said to hold more than one unit element to describe something.
+				And used therefore the custom element to do that properly.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Custom" type="lsmi:CustomDT" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CustomDT">
+		<xs:annotation>
+			<xs:documentation>
+				It's part of Miscelleanous data type and has a name and a content.
+				Be aware of the fact, that the name is a single but the content is unbound.P
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="xs:anySimpleType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Content" type="xs:anySimpleType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="GeneralType1">
+		<xs:annotation>
+			<xs:documentation>
+				This type restricts any currency name to one or more upper case characters
+				followed by nothing or more lower case characters.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Z]+[a-z]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="GeneralType2">
+		<xs:annotation>
+			<xs:documentation>
+				This type is less restricted than GeneralType1, because any number of upper case
+				followed by any number of lower case characters are allowed.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Z]*[a-z]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+</xs:schema>

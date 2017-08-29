@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="name" type="java.lang.String" value="Form" noResource="true"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="2"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="107" max="32767" attributes="0"/>
+              <Component id="label_headline" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="label_description" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="label_artefactType" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="label_dummyFile" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="formattedTextField_name" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                          <Component id="checkBox_createDummyFile" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="19" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+              <Component id="button_ok" linkSize="1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="button_cancel" linkSize="1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="112" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <Component id="label_headline" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="label_description" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="label_artefactType" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="formattedTextField_name" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="label_dummyFile" min="-2" max="-2" attributes="0"/>
+                  <Component id="checkBox_createDummyFile" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="16" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="button_ok" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="button_cancel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="label_headline">
+      <Properties>
+        <Property name="font" type="java.awt.Font" resourceKey="label_headline.font"/>
+        <Property name="text" type="java.lang.String" resourceKey="label_headline.text"/>
+        <Property name="name" type="java.lang.String" value="label_headline" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="label_description">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="label_description.text"/>
+        <Property name="name" type="java.lang.String" value="label_description" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="formattedTextField_name">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="formattedTextField_name.text"/>
+        <Property name="name" type="java.lang.String" value="formattedTextField_name" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="label_artefactType">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="label_artefactType.text"/>
+        <Property name="name" type="java.lang.String" value="label_artefactType" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="button_ok">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="de.uni.bamberg.wiai.minf.forflow.datagenerator.view.dialog.AddArtefactType" id="ok" methodName="ok"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="button_ok.text"/>
+        <Property name="name" type="java.lang.String" value="button_ok" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="button_cancel">
+      <Properties>
+        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+          <action class="de.uni.bamberg.wiai.minf.forflow.datagenerator.view.dialog.AddArtefactType" id="cancel" methodName="cancel"/>
+        </Property>
+        <Property name="text" type="java.lang.String" resourceKey="button_cancel.text"/>
+        <Property name="name" type="java.lang.String" value="button_cancel" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkBox_createDummyFile">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="checkBox_createDummyFile.text"/>
+        <Property name="name" type="java.lang.String" value="checkBox_createDummyFile" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="label_dummyFile">
+      <Properties>
+        <Property name="text" type="java.lang.String" resourceKey="label_dummyFile.text"/>
+        <Property name="name" type="java.lang.String" value="label_dummyFile" noResource="true"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
